@@ -1,0 +1,482 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		32B80AD51910015C008C6AEF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B80AD41910015C008C6AEF /* Cocoa.framework */; };
+		32B80ADF1910015C008C6AEF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32B80ADD1910015C008C6AEF /* InfoPlist.strings */; };
+		32B80AE11910015C008C6AEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B80AE01910015C008C6AEF /* main.m */; };
+		32B80AE51910015C008C6AEF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 32B80AE31910015C008C6AEF /* Credits.rtf */; };
+		32B80AE81910015C008C6AEF /* TVDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B80AE71910015C008C6AEF /* TVDAppDelegate.m */; };
+		32B80AEB1910015C008C6AEF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32B80AE91910015C008C6AEF /* MainMenu.xib */; };
+		32B80AED1910015C008C6AEF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32B80AEC1910015C008C6AEF /* Images.xcassets */; };
+		32B80AF41910015C008C6AEF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B80AF31910015C008C6AEF /* XCTest.framework */; };
+		32B80AF51910015C008C6AEF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B80AD41910015C008C6AEF /* Cocoa.framework */; };
+		32B80AFD1910015C008C6AEF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32B80AFB1910015C008C6AEF /* InfoPlist.strings */; };
+		32B80AFF1910015C008C6AEF /* TVDropTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B80AFE1910015C008C6AEF /* TVDropTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		32B80AF61910015C008C6AEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32B80AC91910015C008C6AEF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32B80AD01910015C008C6AEF;
+			remoteInfo = TVDrop;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		32B80AD11910015C008C6AEF /* TVDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		32B80AD41910015C008C6AEF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		32B80AD71910015C008C6AEF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		32B80AD81910015C008C6AEF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		32B80AD91910015C008C6AEF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		32B80ADC1910015C008C6AEF /* TVDrop-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TVDrop-Info.plist"; sourceTree = "<group>"; };
+		32B80ADE1910015C008C6AEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		32B80AE01910015C008C6AEF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		32B80AE21910015C008C6AEF /* TVDrop-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TVDrop-Prefix.pch"; sourceTree = "<group>"; };
+		32B80AE41910015C008C6AEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		32B80AE61910015C008C6AEF /* TVDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVDAppDelegate.h; sourceTree = "<group>"; };
+		32B80AE71910015C008C6AEF /* TVDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVDAppDelegate.m; sourceTree = "<group>"; };
+		32B80AEA1910015C008C6AEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		32B80AEC1910015C008C6AEF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		32B80AF21910015C008C6AEF /* TVDropTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TVDropTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		32B80AF31910015C008C6AEF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		32B80AFA1910015C008C6AEF /* TVDropTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TVDropTests-Info.plist"; sourceTree = "<group>"; };
+		32B80AFC1910015C008C6AEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		32B80AFE1910015C008C6AEF /* TVDropTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVDropTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		32B80ACE1910015C008C6AEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32B80AD51910015C008C6AEF /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32B80AEF1910015C008C6AEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32B80AF51910015C008C6AEF /* Cocoa.framework in Frameworks */,
+				32B80AF41910015C008C6AEF /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		32B80AC81910015C008C6AEF = {
+			isa = PBXGroup;
+			children = (
+				32B80ADA1910015C008C6AEF /* TVDrop */,
+				32B80AF81910015C008C6AEF /* TVDropTests */,
+				32B80AD31910015C008C6AEF /* Frameworks */,
+				32B80AD21910015C008C6AEF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		32B80AD21910015C008C6AEF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32B80AD11910015C008C6AEF /* TVDrop.app */,
+				32B80AF21910015C008C6AEF /* TVDropTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32B80AD31910015C008C6AEF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32B80AD41910015C008C6AEF /* Cocoa.framework */,
+				32B80AF31910015C008C6AEF /* XCTest.framework */,
+				32B80AD61910015C008C6AEF /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		32B80AD61910015C008C6AEF /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32B80AD71910015C008C6AEF /* AppKit.framework */,
+				32B80AD81910015C008C6AEF /* CoreData.framework */,
+				32B80AD91910015C008C6AEF /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		32B80ADA1910015C008C6AEF /* TVDrop */ = {
+			isa = PBXGroup;
+			children = (
+				32B80AE61910015C008C6AEF /* TVDAppDelegate.h */,
+				32B80AE71910015C008C6AEF /* TVDAppDelegate.m */,
+				32B80AE91910015C008C6AEF /* MainMenu.xib */,
+				32B80AEC1910015C008C6AEF /* Images.xcassets */,
+				32B80ADB1910015C008C6AEF /* Supporting Files */,
+			);
+			path = TVDrop;
+			sourceTree = "<group>";
+		};
+		32B80ADB1910015C008C6AEF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				32B80ADC1910015C008C6AEF /* TVDrop-Info.plist */,
+				32B80ADD1910015C008C6AEF /* InfoPlist.strings */,
+				32B80AE01910015C008C6AEF /* main.m */,
+				32B80AE21910015C008C6AEF /* TVDrop-Prefix.pch */,
+				32B80AE31910015C008C6AEF /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		32B80AF81910015C008C6AEF /* TVDropTests */ = {
+			isa = PBXGroup;
+			children = (
+				32B80AFE1910015C008C6AEF /* TVDropTests.m */,
+				32B80AF91910015C008C6AEF /* Supporting Files */,
+			);
+			path = TVDropTests;
+			sourceTree = "<group>";
+		};
+		32B80AF91910015C008C6AEF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				32B80AFA1910015C008C6AEF /* TVDropTests-Info.plist */,
+				32B80AFB1910015C008C6AEF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		32B80AD01910015C008C6AEF /* TVDrop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32B80B021910015C008C6AEF /* Build configuration list for PBXNativeTarget "TVDrop" */;
+			buildPhases = (
+				32B80ACD1910015C008C6AEF /* Sources */,
+				32B80ACE1910015C008C6AEF /* Frameworks */,
+				32B80ACF1910015C008C6AEF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TVDrop;
+			productName = TVDrop;
+			productReference = 32B80AD11910015C008C6AEF /* TVDrop.app */;
+			productType = "com.apple.product-type.application";
+		};
+		32B80AF11910015C008C6AEF /* TVDropTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32B80B051910015C008C6AEF /* Build configuration list for PBXNativeTarget "TVDropTests" */;
+			buildPhases = (
+				32B80AEE1910015C008C6AEF /* Sources */,
+				32B80AEF1910015C008C6AEF /* Frameworks */,
+				32B80AF01910015C008C6AEF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32B80AF71910015C008C6AEF /* PBXTargetDependency */,
+			);
+			name = TVDropTests;
+			productName = TVDropTests;
+			productReference = 32B80AF21910015C008C6AEF /* TVDropTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		32B80AC91910015C008C6AEF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TVD;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Cameron Ehrlich";
+				TargetAttributes = {
+					32B80AF11910015C008C6AEF = {
+						TestTargetID = 32B80AD01910015C008C6AEF;
+					};
+				};
+			};
+			buildConfigurationList = 32B80ACC1910015C008C6AEF /* Build configuration list for PBXProject "TVDrop" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 32B80AC81910015C008C6AEF;
+			productRefGroup = 32B80AD21910015C008C6AEF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				32B80AD01910015C008C6AEF /* TVDrop */,
+				32B80AF11910015C008C6AEF /* TVDropTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		32B80ACF1910015C008C6AEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32B80ADF1910015C008C6AEF /* InfoPlist.strings in Resources */,
+				32B80AED1910015C008C6AEF /* Images.xcassets in Resources */,
+				32B80AE51910015C008C6AEF /* Credits.rtf in Resources */,
+				32B80AEB1910015C008C6AEF /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32B80AF01910015C008C6AEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32B80AFD1910015C008C6AEF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		32B80ACD1910015C008C6AEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32B80AE11910015C008C6AEF /* main.m in Sources */,
+				32B80AE81910015C008C6AEF /* TVDAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32B80AEE1910015C008C6AEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32B80AFF1910015C008C6AEF /* TVDropTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		32B80AF71910015C008C6AEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32B80AD01910015C008C6AEF /* TVDrop */;
+			targetProxy = 32B80AF61910015C008C6AEF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		32B80ADD1910015C008C6AEF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32B80ADE1910015C008C6AEF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		32B80AE31910015C008C6AEF /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32B80AE41910015C008C6AEF /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		32B80AE91910015C008C6AEF /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32B80AEA1910015C008C6AEF /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		32B80AFB1910015C008C6AEF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32B80AFC1910015C008C6AEF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		32B80B001910015C008C6AEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		32B80B011910015C008C6AEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		32B80B031910015C008C6AEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TVDrop/TVDrop-Prefix.pch";
+				INFOPLIST_FILE = "TVDrop/TVDrop-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		32B80B041910015C008C6AEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TVDrop/TVDrop-Prefix.pch";
+				INFOPLIST_FILE = "TVDrop/TVDrop-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		32B80B061910015C008C6AEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TVDrop.app/Contents/MacOS/TVDrop";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TVDrop/TVDrop-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TVDropTests/TVDropTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		32B80B071910015C008C6AEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TVDrop.app/Contents/MacOS/TVDrop";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TVDrop/TVDrop-Prefix.pch";
+				INFOPLIST_FILE = "TVDropTests/TVDropTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		32B80ACC1910015C008C6AEF /* Build configuration list for PBXProject "TVDrop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32B80B001910015C008C6AEF /* Debug */,
+				32B80B011910015C008C6AEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		32B80B021910015C008C6AEF /* Build configuration list for PBXNativeTarget "TVDrop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32B80B031910015C008C6AEF /* Debug */,
+				32B80B041910015C008C6AEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		32B80B051910015C008C6AEF /* Build configuration list for PBXNativeTarget "TVDropTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32B80B061910015C008C6AEF /* Debug */,
+				32B80B071910015C008C6AEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 32B80AC91910015C008C6AEF /* Project object */;
+}
