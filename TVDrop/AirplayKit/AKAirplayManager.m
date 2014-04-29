@@ -55,10 +55,6 @@
 	[aNetService resolveWithTimeout:20.0];
 	[self.foundServices addObject:aNetService];
 	
-	if(!moreComing) {
-        
-		[self.serviceBrowser stop];
-	}
 }
 
 #pragma mark -

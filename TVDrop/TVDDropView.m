@@ -20,7 +20,13 @@
 
 - (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender
 {
+    [self.layer setBackgroundColor:[[NSColor yellowColor] CGColor]];
     return NSDragOperationCopy;
+}
+
+-(void)draggingExited:(id<NSDraggingInfo>)sender
+{
+    [self.layer setBackgroundColor:[[NSColor greenColor] CGColor]];
 }
 
 - (BOOL)performDragOperation:(id <NSDraggingInfo>)sender

@@ -21,15 +21,6 @@
     [self.airplayManager setDelegate:self];
     [self.airplayManager findDevices];
 
-//    // Returns NULL/nil if no computer name set, or error occurred. OSX 10.1+
-//    NSString *computerName = (__bridge NSString *)SCDynamicStoreCopyComputerName(NULL, NULL);
-//    
-//    // Returns NULL/nil if no local hostname set, or error occurred. OSX 10.2+
-//    NSString *localHostname = (__bridge NSString *)SCDynamicStoreCopyLocalHostName(NULL) ;
-//    
-//    NSLog(@"%@, %@", computerName, localHostname);
-    
-    // Add a handler to respond to GET requests on any URL
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         self.webServer = [[GCDWebServer alloc] init];
         [self.webServer addGETHandlerForBasePath:@"/" directoryPath:NSHomeDirectory() indexFilename:nil cacheAge:3600 allowRangeRequests:YES];
@@ -37,6 +28,10 @@
     });
 }
 
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
+{
+    return YES;
+}
 
 #pragma mark AKAirPlayManagerDelegate
 

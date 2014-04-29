@@ -670,46 +670,41 @@
         </menu>
         <window title="TVDrop" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="521" height="210"/>
+            <rect key="contentRect" x="335" y="390" width="521" height="208"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="521" height="210"/>
+                <rect key="frame" x="0.0" y="0.0" width="521" height="208"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView wantsLayer="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0KJ-TX-qcq" customClass="TVDDropView">
-                        <rect key="frame" x="0.0" y="0.0" width="521" height="210"/>
+                    <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0KJ-TX-qcq" customClass="TVDDropView">
+                        <rect key="frame" x="20" y="49" width="481" height="139"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O4p-Vz-Z7N">
-                                <rect key="frame" x="406" y="162" width="101" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Browse" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dhe-I4-pSD">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="browseButtonAction:" target="Voe-Tx-rLC" id="oQ5-fh-L5U"/>
-                                </connections>
-                            </button>
-                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lWV-Vk-Z7k">
-                                <rect key="frame" x="18" y="166" width="389" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Occ-n9-t8L" id="Jet-rF-Nvw">
-                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="menu"/>
-                                    <menu key="menu" title="OtherViews" id="lMq-Ok-TVB">
-                                        <items>
-                                            <menuItem title="Item 1" state="on" id="Occ-n9-t8L"/>
-                                            <menuItem title="Item 2" id="272-x5-p1I"/>
-                                            <menuItem title="Item 3" id="3Lz-zV-er1"/>
-                                        </items>
-                                    </menu>
-                                </popUpButtonCell>
-                            </popUpButton>
-                        </subviews>
                     </customView>
+                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lWV-Vk-Z7k">
+                        <rect key="frame" x="18" y="17" width="486" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Occ-n9-t8L" id="Jet-rF-Nvw">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" title="OtherViews" id="lMq-Ok-TVB">
+                                <items>
+                                    <menuItem title="Item 1" state="on" id="Occ-n9-t8L"/>
+                                    <menuItem title="Item 2" id="272-x5-p1I"/>
+                                    <menuItem title="Item 3" id="3Lz-zV-er1"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="0KJ-TX-qcq" secondAttribute="trailing" constant="20" symbolic="YES" id="4cw-LS-zav"/>
+                    <constraint firstAttribute="bottom" secondItem="0KJ-TX-qcq" secondAttribute="bottom" constant="49" id="9bj-Lt-TXM"/>
+                    <constraint firstItem="0KJ-TX-qcq" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" symbolic="YES" id="HGq-78-rwi"/>
+                    <constraint firstItem="0KJ-TX-qcq" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="Nfk-RL-xeW"/>
+                    <constraint firstItem="0KJ-TX-qcq" firstAttribute="leading" secondItem="lWV-Vk-Z7k" secondAttribute="leading" id="VUE-8y-hOP"/>
+                    <constraint firstItem="lWV-Vk-Z7k" firstAttribute="top" secondItem="0KJ-TX-qcq" secondAttribute="bottom" constant="8" id="kMW-Gh-lT9"/>
+                    <constraint firstItem="0KJ-TX-qcq" firstAttribute="trailing" secondItem="lWV-Vk-Z7k" secondAttribute="trailing" id="yo8-EB-RqK"/>
+                </constraints>
             </view>
         </window>
     </objects>
