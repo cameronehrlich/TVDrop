@@ -1,0 +1,1 @@
+PODS_TVDROP_GCDWEBSERVER_OTHER_LDFLAGS = -lz -framework SystemConfiguration
