@@ -24,7 +24,7 @@
 @property (nonatomic, strong) AKDevice *connectedDevice;
 @property (nonatomic, strong) AsyncSocket *socket;
 @property (nonatomic, strong) NSNetServiceBrowser *serviceBrowser;
-@property (nonatomic, strong) NSMutableArray *foundServices;
+@property (nonatomic, strong) NSMutableSet *foundServices;
 
 - (void)findDevices;
 - (void)connectToDevice:(AKDevice *)device;

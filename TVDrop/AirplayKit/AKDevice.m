@@ -59,6 +59,7 @@
 
 - (void)sendContentURL:(NSString *)url
 {
+    self.playing = YES;
 	NSString *body = [[NSString alloc] initWithFormat:
                       @"Content-Location: %@\r\n"
                       "Start-Position: 0\r\n\r\n", url];
@@ -76,6 +77,8 @@
 
 - (void)sendImage:(NSImage *)image
 {
+    self.playing = NO;
+    
     [image lockFocus] ;
     NSBitmapImageRep *bitmapRep = [[NSBitmapImageRep alloc] initWithFocusedViewRect:NSMakeRect(0, 0, [image size].width, [image size].height)] ;
     [image unlockFocus] ;
@@ -98,21 +101,23 @@
 
 - (void)sendStop
 {
+    self.playing = NO;
 	NSString *message =
     @"POST /stop HTTP/1.1\r\n"
     "User-Agent: MediaControl/1.0\r\n\r\n";
 	[self sendRawMessage:message];
 }
 
-- (void)sendPlay
+- (void)sendPlayPause
 {
-	NSString *message =
-    @"POST /rate?value=1 HTTP/1.1\r\n"
-    "Upgrade: PTTH/1.0\r\n"
+    self.playing = !self.playing;
+    NSString *postRequest = [NSString stringWithFormat:@"POST /rate?value=%d HTTP/1.1\r\n", self.playing];
+	NSString *message = [postRequest stringByAppendingString:
+    @"Upgrade: PTTH/1.0\r\n"
     "Connection: Upgrade\r\n"
     "Content-Length: 0\r\n"
     "X-Apple-Purpose: event\r\n"
-    "User-Agent: MediaControl/1.0\r\n\r\n";
+    "User-Agent: MediaControl/1.0\r\n\r\n"];
 	[self sendRawMessage:message];
 }
 

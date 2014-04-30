@@ -18,7 +18,7 @@
     self = [super init];
 
 	if(self) {
-		self.foundServices = [[NSMutableArray alloc] init];
+		self.foundServices = [[NSMutableSet alloc] init];
 	}
 	
 	return self;

@@ -7,45 +7,36 @@
 //
 
 #import "TVDAppDelegate.h"
-#import <NSString+RMURLEncoding.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @implementation TVDAppDelegate
+{
+    TVDModel *model;
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    self.foundDevices = [NSMutableSet set];
+    model = [TVDModel sharedInstance];
     
-    [self.dropdown removeAllItems];
-    [self.statusLabel setStringValue:@""];
+    [RACObserve(model, fileToPlayURL) subscribeNext:^(id x) {
+        if(x){
+            [self.statusLabel setStringValue:[(NSURL *)x lastPathComponent]];
+        }
+    }];
     
-    self.airplayManager = [[AKAirplayManager alloc] init];
-    [self.airplayManager setDelegate:self];
-    [self.airplayManager findDevices];
-
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        self.webServer = [[GCDWebServer alloc] init];
-        [self.webServer addGETHandlerForBasePath:@"/" directoryPath:NSHomeDirectory() indexFilename:nil cacheAge:3600 allowRangeRequests:YES];
-        [self.webServer runWithPort:8080 bonjourName:nil];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.dropdown removeAllItems];
+        for (AKDevice *device in [[TVDModel sharedInstance] foundDevices]) {
+            [self.dropdown addItemWithTitle:device.displayName];
+        }
+        
     });
+    
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
 {
     return YES;
-}
-
-#pragma mark AKAirPlayManagerDelegate
-
--(void)airplayManager:(AKAirplayManager *)manager didFindDevice:(AKDevice *)device
-{
-    [self.foundDevices addObject:device];
-    [self.dropdown addItemWithTitle:device.displayName];
-}
-
--(void)airplayManager:(AKAirplayManager *)manager didConnectToDevice:(AKDevice *)device
-{
-    self.connectedDevice = device;
-    [self playFileAtURL:self.fileToPlayURL];
 }
 
 
@@ -54,78 +45,26 @@
     [self openFileBrowser];
 }
 
-- (NSArray *)musicTypes
-{
-    return @[ @"m4a", @"mp3" ];
-}
-
-- (NSArray *)videoTypes
-{
-    return @[ @"mp4", @"mov", @"ts", @"m4v" ];
-}
-
-- (NSArray *)imageTypes
-{
-    return @[ @"png", @"jpg", @"tiff", @"psd" ];
-}
 
 - (void)openFileBrowser
 {
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
     
-    NSArray *fileTypesArray = [[[self musicTypes] arrayByAddingObjectsFromArray:[self videoTypes]] arrayByAddingObjectsFromArray:[self imageTypes]];
-    
     [openPanel setCanChooseFiles:YES];
-    [openPanel setAllowedFileTypes:fileTypesArray];
+    [openPanel setAllowedFileTypes:[[TVDModel sharedInstance] allTypes]];
     [openPanel setAllowsMultipleSelection:NO];
-
+    
     if ([openPanel runModal] == NSOKButton ) {
-    
-        self.fileToPlayURL = [openPanel URL];
-        [self connectAndPlay];
         
-    }
-}
-
-- (void)connectAndPlay
-{
-    NSString *selectedItem = [[self.dropdown selectedItem] title];
-    for (AKDevice *device in self.foundDevices) {
-        if ([selectedItem isEqualToString:device.displayName]) {
-            [device setDelegate:self];
-            [self.airplayManager connectToDevice:device];
-            break;
-        }
-    }
-}
-
-- (void)playFileAtURL:(NSURL *)fileURL
-{
-    [self.statusLabel setStringValue:fileURL.lastPathComponent];
-    
-    if ([[self imageTypes] containsObject:fileURL.pathExtension]) {
-        NSLog(@"Sending image: %@", fileURL);
-        [self.connectedDevice sendImage:[[NSImage alloc] initWithContentsOfURL:fileURL]];
-    }else{
-        NSString *address = [self.webServer serverURL].absoluteString;
-        NSString *pathToFile = [[fileURL.path stringByReplacingOccurrencesOfString:[NSHomeDirectory() stringByAppendingString:@"/"] withString:@""] rm_URLEncodedString];
-        NSString *finalURL = [address stringByAppendingString:pathToFile];
-        
-        NSLog(@"Sending URL: %@", finalURL);
-        
-        [self.connectedDevice sendContentURL: finalURL];
+        [[TVDModel sharedInstance] setFileToPlayURL:[openPanel URL]];
+        [[TVDModel sharedInstance] connectAndPlay:[[self.dropdown selectedItem] title]];
     }
 }
 
 - (IBAction)stopButtonAction:(id)sender
 {
     [self.statusLabel setStringValue:@""];
-    [self.connectedDevice sendStop];
-}
-
-- (IBAction)playPauseButtonAction:(id)sender
-{
-    [self.connectedDevice sendPlay];
+    [[[TVDModel sharedInstance] connectedDevice] sendStop];
 }
 
 @end

@@ -34,8 +34,8 @@
 {
     NSPasteboard *pboard = [sender draggingPasteboard];
     
-    [(TVDAppDelegate*)[[NSApplication sharedApplication] delegate] setFileToPlayURL:[NSURL URLFromPasteboard:pboard]];
-    [(TVDAppDelegate*)[[NSApplication sharedApplication] delegate] connectAndPlay];
+    [[TVDModel sharedInstance] setFileToPlayURL:[NSURL URLFromPasteboard:pboard]];
+    [[TVDModel sharedInstance] connectAndPlay:[[[TVDModel sharedInstance] connectedDevice] displayName]];
     
     return YES;
 }
@@ -43,7 +43,7 @@
 -(void)keyUp:(NSEvent *)theEvent
 {
     if (theEvent.keyCode == 49) {
-        
+        [[[TVDModel sharedInstance] connectedDevice] sendPlayPause];
     }
 }
 

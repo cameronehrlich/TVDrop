@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSString *hostname;
 @property (nonatomic, assign) UInt16 port;
 @property (nonatomic, assign) BOOL connected;
+@property (nonatomic, assign) BOOL playing;
 @property (nonatomic, strong) AsyncSocket *socket;
 @property (nonatomic, strong) NSNetService *netService;
 
@@ -31,8 +32,7 @@
 - (void)sendContentURL:(NSString *)url;
 - (void)sendImage:(NSImage *)image;
 - (void)sendStop;
-- (void)sendPlay;
-- (void)sendPause;
+- (void)sendPlayPause;
 - (void)sendReverse;
 
 @end

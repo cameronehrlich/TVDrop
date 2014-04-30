@@ -7,32 +7,17 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "AirplayKit/AKAirplayManager.h"
-#import "AirplayKit/AKDevice.h"
-#import <GCDWebServer.h>
-#import <GCDWebServer/GCDWebServerFileResponse.h>
-#import <GCDWebServer/GCDWebServerDataResponse.h>
-#import <SystemConfiguration/SystemConfiguration.h>
 #import "TVDDropView.h"
+#import "TVDModel.h"
 
-@interface TVDAppDelegate : NSObject <NSApplicationDelegate, AKAirplayManagerDelegate, AKDeviceDelegate>
+@interface TVDAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (nonatomic, assign) IBOutlet NSWindow *window;
 @property (nonatomic, strong) IBOutlet NSPopUpButtonCell *dropdown;
 @property (nonatomic, strong) IBOutlet TVDDropView *dropView;
 @property (nonatomic, strong) IBOutlet NSTextField *statusLabel;
 
-@property (nonatomic, strong) AKAirplayManager *airplayManager;
-@property (nonatomic, strong) AKDevice *connectedDevice;
-@property (nonatomic, strong) GCDWebServer *webServer;
-@property (nonatomic, strong) NSMutableSet *foundDevices;
-@property (nonatomic, strong) NSURL *fileToPlayURL;
-
 - (IBAction)chooseFileButtonAction:(id)sender;
 - (IBAction)stopButtonAction:(id)sender;
-- (IBAction)playPauseButtonAction:(id)sender;
-
-- (void)playFileAtURL:(NSURL *)fileURL;
-- (void)connectAndPlay;
 
 @end
