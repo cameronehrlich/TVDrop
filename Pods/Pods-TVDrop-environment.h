@@ -60,6 +60,12 @@
 #define COCOAPODS_VERSION_MINOR_GCDWebServer_Core 4
 #define COCOAPODS_VERSION_PATCH_GCDWebServer_Core 0
 
+// HexColors
+#define COCOAPODS_POD_AVAILABLE_HexColors
+#define COCOAPODS_VERSION_MAJOR_HexColors 2
+#define COCOAPODS_VERSION_MINOR_HexColors 2
+#define COCOAPODS_VERSION_PATCH_HexColors 1
+
 // NSString+RMURLEncoding
 #define COCOAPODS_POD_AVAILABLE_NSString_RMURLEncoding
 #define COCOAPODS_VERSION_MAJOR_NSString_RMURLEncoding 0

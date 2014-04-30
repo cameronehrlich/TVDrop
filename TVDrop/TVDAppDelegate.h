@@ -20,6 +20,7 @@
 @property (nonatomic, assign) IBOutlet NSWindow *window;
 @property (nonatomic, strong) IBOutlet NSPopUpButtonCell *dropdown;
 @property (nonatomic, strong) IBOutlet TVDDropView *dropView;
+@property (nonatomic, strong) IBOutlet NSTextField *statusLabel;
 
 @property (nonatomic, strong) AKAirplayManager *airplayManager;
 @property (nonatomic, strong) AKDevice *connectedDevice;
@@ -27,9 +28,11 @@
 @property (nonatomic, strong) NSMutableSet *foundDevices;
 @property (nonatomic, strong) NSURL *fileToPlayURL;
 
-- (IBAction)browseButtonAction:(id)sender;
+- (IBAction)chooseFileButtonAction:(id)sender;
+- (IBAction)stopButtonAction:(id)sender;
+- (IBAction)playPauseButtonAction:(id)sender;
 
 - (void)playFileAtURL:(NSURL *)fileURL;
--(void)connectAndPlay;
+- (void)connectAndPlay;
 
 @end

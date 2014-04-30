@@ -104,6 +104,18 @@
 	[self sendRawMessage:message];
 }
 
+- (void)sendPlay
+{
+	NSString *message =
+    @"POST /rate?value=1 HTTP/1.1\r\n"
+    "Upgrade: PTTH/1.0\r\n"
+    "Connection: Upgrade\r\n"
+    "Content-Length: 0\r\n"
+    "X-Apple-Purpose: event\r\n"
+    "User-Agent: MediaControl/1.0\r\n\r\n";
+	[self sendRawMessage:message];
+}
+
 - (void)sendReverse
 {
 	NSString *message =

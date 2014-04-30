@@ -23,6 +23,7 @@
 		32B80AF51910015C008C6AEF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B80AD41910015C008C6AEF /* Cocoa.framework */; };
 		32B80AFD1910015C008C6AEF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32B80AFB1910015C008C6AEF /* InfoPlist.strings */; };
 		32B80AFF1910015C008C6AEF /* TVDropTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B80AFE1910015C008C6AEF /* TVDropTests.m */; };
+		32EB318E19107AA000CF8E1D /* TVDModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EB318D19107AA000CF8E1D /* TVDModel.m */; };
 		52A18450102E48CBA8F18241 /* libPods-TVDrop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A60E1978AA2C4D41B838CB5A /* libPods-TVDrop.a */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,8 @@
 		32B80AFA1910015C008C6AEF /* TVDropTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TVDropTests-Info.plist"; sourceTree = "<group>"; };
 		32B80AFC1910015C008C6AEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		32B80AFE1910015C008C6AEF /* TVDropTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVDropTests.m; sourceTree = "<group>"; };
+		32EB318C19107AA000CF8E1D /* TVDModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVDModel.h; sourceTree = "<group>"; };
+		32EB318D19107AA000CF8E1D /* TVDModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVDModel.m; sourceTree = "<group>"; };
 		A60E1978AA2C4D41B838CB5A /* libPods-TVDrop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TVDrop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A239E355D54BF4A272228F /* Pods-TVDrop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVDrop.xcconfig"; path = "Pods/Pods-TVDrop.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,6 +156,8 @@
 				32B80AE71910015C008C6AEF /* TVDAppDelegate.m */,
 				324047801910506000093491 /* TVDDropView.h */,
 				324047811910506000093491 /* TVDDropView.m */,
+				32EB318C19107AA000CF8E1D /* TVDModel.h */,
+				32EB318D19107AA000CF8E1D /* TVDModel.m */,
 				32B80AE91910015C008C6AEF /* MainMenu.xib */,
 				3240476E19101CE000093491 /* AirplayKit */,
 				32B80AEC1910015C008C6AEF /* Images.xcassets */,
@@ -327,6 +332,7 @@
 			files = (
 				3240477619101CE000093491 /* AKAirplayManager.m in Sources */,
 				3240477719101CE000093491 /* AKDevice.m in Sources */,
+				32EB318E19107AA000CF8E1D /* TVDModel.m in Sources */,
 				32B80AE11910015C008C6AEF /* main.m in Sources */,
 				32B80AE81910015C008C6AEF /* TVDAppDelegate.m in Sources */,
 				324047821910506000093491 /* TVDDropView.m in Sources */,

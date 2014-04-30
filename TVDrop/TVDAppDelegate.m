@@ -16,6 +16,7 @@
     self.foundDevices = [NSMutableSet set];
     
     [self.dropdown removeAllItems];
+    [self.statusLabel setStringValue:@""];
     
     self.airplayManager = [[AKAirplayManager alloc] init];
     [self.airplayManager setDelegate:self];
@@ -48,7 +49,7 @@
 }
 
 
-- (IBAction)browseButtonAction:(id)sender
+- (IBAction)chooseFileButtonAction:(id)sender
 {
     [self openFileBrowser];
 }
@@ -65,7 +66,7 @@
 
 - (NSArray *)imageTypes
 {
-    return @[ @"png", @"jpg", @"tiff" ];
+    return @[ @"png", @"jpg", @"tiff", @"psd" ];
 }
 
 - (void)openFileBrowser
@@ -100,6 +101,8 @@
 
 - (void)playFileAtURL:(NSURL *)fileURL
 {
+    [self.statusLabel setStringValue:fileURL.lastPathComponent];
+    
     if ([[self imageTypes] containsObject:fileURL.pathExtension]) {
         NSLog(@"Sending image: %@", fileURL);
         [self.connectedDevice sendImage:[[NSImage alloc] initWithContentsOfURL:fileURL]];
@@ -112,6 +115,17 @@
         
         [self.connectedDevice sendContentURL: finalURL];
     }
+}
+
+- (IBAction)stopButtonAction:(id)sender
+{
+    [self.statusLabel setStringValue:@""];
+    [self.connectedDevice sendStop];
+}
+
+- (IBAction)playPauseButtonAction:(id)sender
+{
+    [self.connectedDevice sendPlay];
 }
 
 @end

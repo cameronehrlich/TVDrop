@@ -9,6 +9,7 @@ target "TVDrop" do
     pod 'AFNetworking', '~> 2.2'
     pod 'GCDWebServer', '~> 2.4'
     pod 'NSString+RMURLEncoding', '~> 0.1'
+    pod 'HexColors', '~> 2.2'
 end
 
 target "TVDropTests" do

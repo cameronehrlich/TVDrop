@@ -9,24 +9,25 @@
 #import "TVDDropView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "TVDAppDelegate.h"
+#import <HexColor.h>
 
 @implementation TVDDropView
 
 - (void)awakeFromNib
 {
     [self registerForDraggedTypes:@[NSURLPboardType, NSFilenamesPboardType]];
-    [self.layer setBackgroundColor:[[NSColor greenColor] CGColor]];
+    [self.layer setBackgroundColor:[[NSColor colorWithHexString:@"#BEE5E9" alpha:1] CGColor]];
 }
 
 - (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender
 {
-    [self.layer setBackgroundColor:[[NSColor yellowColor] CGColor]];
+    [self.layer setBackgroundColor:[[NSColor colorWithHexString:@"#C2EBCF" alpha:1] CGColor]];
     return NSDragOperationCopy;
 }
 
 -(void)draggingExited:(id<NSDraggingInfo>)sender
 {
-    [self.layer setBackgroundColor:[[NSColor greenColor] CGColor]];
+    [self.layer setBackgroundColor:[[NSColor colorWithHexString:@"#BEE5E9" alpha:1] CGColor]];
 }
 
 - (BOOL)performDragOperation:(id <NSDraggingInfo>)sender
@@ -37,6 +38,13 @@
     [(TVDAppDelegate*)[[NSApplication sharedApplication] delegate] connectAndPlay];
     
     return YES;
+}
+
+-(void)keyUp:(NSEvent *)theEvent
+{
+    if (theEvent.keyCode == 49) {
+        
+    }
 }
 
 @end

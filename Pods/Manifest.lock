@@ -19,6 +19,7 @@ PODS:
   - GCDWebServer (2.4):
     - GCDWebServer/Core
   - GCDWebServer/Core (2.4)
+  - HexColors (2.2.1)
   - NSString+RMURLEncoding (0.1.0)
   - ReactiveCocoa (2.3):
     - ReactiveCocoa/Core
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - AFNetworking (~> 2.2)
   - CocoaAsyncSocket (~> 7.3)
   - GCDWebServer (~> 2.4)
+  - HexColors (~> 2.2)
   - NSString+RMURLEncoding (~> 0.1)
   - ReactiveCocoa (~> 2.3)
 
@@ -38,6 +40,7 @@ SPEC CHECKSUMS:
   AFNetworking: ae513199cca79e9d7af2708ccabe2ed075550c42
   CocoaAsyncSocket: 534d09416f992fd51efb23f534742ce70b3a7999
   GCDWebServer: fb6eba9a0fb08455cd762b6c035a5068b8f4960b
+  HexColors: 99211502e17904af7891fc8f687d0e4958a6d66e
   NSString+RMURLEncoding: f2a8c822486cdbe5c46638e85bc159aaa3ebc2b8
   ReactiveCocoa: 1f6265f9d521923d3efcc37b00722cefc16df269
 

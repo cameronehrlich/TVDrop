@@ -89,7 +89,8 @@
     
     [self.connectedDevice sendReverse];
     [self.delegate airplayManager:self didConnectToDevice:self.connectedDevice];
-
 }
+
+
 
 @end

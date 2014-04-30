@@ -27,10 +27,12 @@
 @property (nonatomic, strong) NSNetService *netService;
 
 - (void)sendRawData:(NSData *)data;
-- (void)sendRawMessage:(NSString *)message; // Sends a raw HTTP string over Airplay.
+- (void)sendRawMessage:(NSString *)message;
 - (void)sendContentURL:(NSString *)url;
 - (void)sendImage:(NSImage *)image;
 - (void)sendStop;
+- (void)sendPlay;
+- (void)sendPause;
 - (void)sendReverse;
 
 @end
