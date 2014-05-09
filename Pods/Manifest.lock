@@ -1,0 +1,33 @@
+PODS:
+  - CocoaAsyncSocket (7.3.4)
+  - GCDWebServer (2.4):
+    - GCDWebServer/Core
+  - GCDWebServer/Core (2.4)
+  - HexColors (2.2.1)
+  - NSString+RMURLEncoding (0.1.0)
+  - pop (1.0.4)
+  - ReactiveCocoa (2.3):
+    - ReactiveCocoa/UI
+  - ReactiveCocoa/Core (2.3):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.3)
+  - ReactiveCocoa/UI (2.3):
+    - ReactiveCocoa/Core
+
+DEPENDENCIES:
+  - CocoaAsyncSocket
+  - GCDWebServer
+  - HexColors
+  - NSString+RMURLEncoding
+  - pop
+  - ReactiveCocoa
+
+SPEC CHECKSUMS:
+  CocoaAsyncSocket: 534d09416f992fd51efb23f534742ce70b3a7999
+  GCDWebServer: fb6eba9a0fb08455cd762b6c035a5068b8f4960b
+  HexColors: 99211502e17904af7891fc8f687d0e4958a6d66e
+  NSString+RMURLEncoding: f2a8c822486cdbe5c46638e85bc159aaa3ebc2b8
+  pop: 63a4f5e8942077fed2efe195036ecc572c71c48c
+  ReactiveCocoa: dde7b11a14954edf789e7343b2c32e595caabd01
+
+COCOAPODS: 0.32.1

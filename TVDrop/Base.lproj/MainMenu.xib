@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13D45a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1080" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="GzC-gU-4Uq"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <customObject id="Voe-Tx-rLC" customClass="TVDAppDelegate">
+            <connections>
+                <outlet property="airplayDevicesMenuItem" destination="cDH-VH-z2f" id="A50-lz-aDz"/>
+                <outlet property="dropView" destination="0KJ-TX-qcq" id="ozx-0W-pS1"/>
+                <outlet property="statusLabel" destination="uMB-1R-8D5" id="908-Ly-RJr"/>
+                <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
+            </connections>
+        </customObject>
+        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
+            <items>
+                <menuItem title="TVDrop" id="1Xt-HY-uBw">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="TVDrop" systemMenu="apple" id="uQy-DD-JDr">
+                        <items>
+                            <menuItem title="About TVDrop" id="5kV-Vb-QxS">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="orderFrontStandardAboutPanel:" target="-1" id="Exp-CZ-Vem"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
+                            <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                            <menuItem title="AirPlay Devices" id="cDH-VH-z2f">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="AirPlay Devices" id="czS-It-4DZ">
+                                    <items>
+                                        <menuItem title="Item" id="Cc8-hJ-xGh">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
+                            <menuItem title="Hide TVDrop" keyEquivalent="h" id="Olw-nP-bQN">
+                                <connections>
+                                    <action selector="hide:" target="-1" id="PnN-Uc-m68"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Hide Others" keyEquivalent="h" id="Vdr-fp-XzO">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="hideOtherApplications:" target="-1" id="VT4-aY-XCT"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show All" id="Kd2-mp-pUS">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="unhideAllApplications:" target="-1" id="Dhg-Le-xox"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
+                            <menuItem title="Quit TVDrop" keyEquivalent="q" id="4sb-4s-VLi">
+                                <connections>
+                                    <action selector="terminate:" target="-1" id="Te7-pn-YzF"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+            </items>
+        </menu>
+        <window title="TVDrop" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" showsToolbarButton="NO" appearanceType="lightContent" animationBehavior="default" id="QvC-M9-y7g" customClass="TVDWindow">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <rect key="contentRect" x="335" y="390" width="412" height="290"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="412" height="290"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <customView wantsLayer="YES" focusRingType="exterior" translatesAutoresizingMaskIntoConstraints="NO" id="0KJ-TX-qcq" customClass="TVDDropView">
+                        <rect key="frame" x="0.0" y="0.0" width="412" height="290"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <textField appearanceType="lightContent" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uMB-1R-8D5">
+                                <rect key="frame" x="18" y="134" width="376" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" controlSize="mini" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" alignment="center" title="Multiline Label" id="zPW-h0-KcK">
+                                    <font key="font" size="9" name="HelveticaNeue-Thin"/>
+                                    <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="uMB-1R-8D5" secondAttribute="trailing" constant="20" symbolic="YES" id="9Qx-hI-eP4"/>
+                            <constraint firstItem="uMB-1R-8D5" firstAttribute="leading" secondItem="0KJ-TX-qcq" secondAttribute="leading" constant="20" symbolic="YES" id="N5H-3U-ExY"/>
+                            <constraint firstItem="uMB-1R-8D5" firstAttribute="centerY" secondItem="0KJ-TX-qcq" secondAttribute="centerY" id="oXz-QY-3AQ"/>
+                        </constraints>
+                    </customView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="0KJ-TX-qcq" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="EfA-J6-Cht"/>
+                    <constraint firstAttribute="bottom" secondItem="0KJ-TX-qcq" secondAttribute="bottom" id="G3Z-ek-NFz"/>
+                    <constraint firstItem="0KJ-TX-qcq" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="fJb-ZY-5Lu"/>
+                    <constraint firstAttribute="trailing" secondItem="0KJ-TX-qcq" secondAttribute="trailing" id="kVB-lK-QG2"/>
+                </constraints>
+            </view>
+        </window>
+    </objects>
+</document>
