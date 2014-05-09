@@ -24,6 +24,11 @@
 	return self;
 }
 
+- (void)keepAlive
+{
+    [[self connectedDevice] sendReverse];
+}
+
 #pragma mark -
 #pragma mark Public Methods
 
@@ -42,8 +47,9 @@
     [self.socket connectToHost:self.connectedDevice.hostname onPort:self.connectedDevice.port error:&error];
     if (error) {
         NSLog(@"%@", error);
+        return;
     }
-
+    [self keepAlive];
 }
 
 #pragma mark -
@@ -62,9 +68,9 @@
 
 - (void)netServiceDidResolveAddress:(NSNetService *)sender
 {
-	AKDevice *device = [[AKDevice alloc] init];
-	device.hostname = sender.hostName;
-	device.port = sender.port;
+    AKDevice *device = [[AKDevice alloc] init];
+    device.hostname  = sender.hostName;
+    device.port      = sender.port;
 	
     if(!self.delegate) {
         NSLog(@"Airplay Manager Delegate not set.");
@@ -79,8 +85,8 @@
 
 - (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port
 {
-	self.connectedDevice.socket = sock;
-	self.connectedDevice.connected = YES;
+    self.connectedDevice.socket    = sock;
+    self.connectedDevice.connected = YES;
     
 	if(!self.delegate) {
         NSLog(@"Airplay Manager Delegate not set.");
@@ -91,6 +97,9 @@
     [self.delegate airplayManager:self didConnectToDevice:self.connectedDevice];
 }
 
-
+-(void)onSocket:(AsyncSocket *)sock willDisconnectWithError:(NSError *)err
+{
+    NSLog(@"%@", err);
+}
 
 @end

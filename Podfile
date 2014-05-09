@@ -4,12 +4,12 @@
 inhibit_all_warnings!
 
 target "TVDrop" do
-    pod 'ReactiveCocoa', '~> 2.3'
-    pod 'CocoaAsyncSocket', '~> 7.3'
-    pod 'AFNetworking', '~> 2.2'
-    pod 'GCDWebServer', '~> 2.4'
-    pod 'NSString+RMURLEncoding', '~> 0.1'
-    pod 'HexColors', '~> 2.2'
+    pod 'ReactiveCocoa'
+    pod 'CocoaAsyncSocket'
+    pod 'GCDWebServer'
+    pod 'NSString+RMURLEncoding'
+    pod 'HexColors'
+    pod 'pop'
 end
 
 target "TVDropTests" do

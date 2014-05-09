@@ -8,7 +8,8 @@
 
 #import "AKDevice.h"
 
-#define kSocketTimeout 20.00
+#define kSocketTimeout 30
+#define kKeepAliveInterval 5.0
 
 @implementation AKDevice
 
@@ -60,6 +61,7 @@
 - (void)sendContentURL:(NSString *)url
 {
     self.playing = YES;
+    
 	NSString *body = [[NSString alloc] initWithFormat:
                       @"Content-Location: %@\r\n"
                       "Start-Position: 0\r\n\r\n", url];
@@ -71,7 +73,12 @@
                          "Content-Length: %lu\r\n"
                          "User-Agent: MediaControl/1.0\r\n\r\n%@", (unsigned long)length, body];
 	
-	
+    // Start Timer
+	self.keepAliveTimer = [NSTimer scheduledTimerWithTimeInterval:kKeepAliveInterval
+                                                           target:self
+                                                         selector:@selector(sendReverse)
+                                                         userInfo:nil
+                                                          repeats:YES];
 	[self sendRawMessage:message];
 }
 
@@ -95,8 +102,6 @@
     [messageData appendData:imageData];
     
     [self sendRawData:messageData];
-    
-    
 }
 
 - (void)sendStop
@@ -106,6 +111,7 @@
     @"POST /stop HTTP/1.1\r\n"
     "User-Agent: MediaControl/1.0\r\n\r\n";
 	[self sendRawMessage:message];
+    [self.keepAliveTimer invalidate];
 }
 
 - (void)sendPlayPause
@@ -139,11 +145,22 @@
 
 - (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
-	if([self.delegate respondsToSelector:@selector(device:didSendBackMessage:)])
-	{
-		NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-		[self.delegate device:self didSendBackMessage:message];
-	}
+//    NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+}
+
+-(void)onSocket:(AsyncSocket *)sock didAcceptNewSocket:(AsyncSocket *)newSocket
+{
+    NSLog(@"%s", __FUNCTION__);
+}
+
+-(void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port
+{
+    NSLog(@"%s", __FUNCTION__);
+}
+
+-(void)onSocket:(AsyncSocket *)sock willDisconnectWithError:(NSError *)err
+{
+    NSLog(@"%s", __FUNCTION__);
 }
 
 @end

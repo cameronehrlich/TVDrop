@@ -13,11 +13,11 @@
 @interface TVDAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (nonatomic, assign) IBOutlet NSWindow *window;
-@property (nonatomic, strong) IBOutlet NSPopUpButtonCell *dropdown;
 @property (nonatomic, strong) IBOutlet TVDDropView *dropView;
 @property (nonatomic, strong) IBOutlet NSTextField *statusLabel;
+@property (nonatomic, strong) IBOutlet NSMenuItem *airplayDevicesMenuItem;
 
-- (IBAction)chooseFileButtonAction:(id)sender;
 - (IBAction)stopButtonAction:(id)sender;
+- (IBAction)playPause:(id)sender;
 
 @end

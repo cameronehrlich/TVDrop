@@ -12,6 +12,7 @@
 		3240477C191036D500093491 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3240477B191036D500093491 /* SystemConfiguration.framework */; };
 		324047821910506000093491 /* TVDDropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 324047811910506000093491 /* TVDDropView.m */; };
 		32404784191051C300093491 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32404783191051C300093491 /* QuartzCore.framework */; };
+		32561851191B48750027D4D8 /* TVDWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 32561850191B48750027D4D8 /* TVDWindow.m */; };
 		32B80AD51910015C008C6AEF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B80AD41910015C008C6AEF /* Cocoa.framework */; };
 		32B80ADF1910015C008C6AEF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32B80ADD1910015C008C6AEF /* InfoPlist.strings */; };
 		32B80AE11910015C008C6AEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B80AE01910015C008C6AEF /* main.m */; };
@@ -46,6 +47,8 @@
 		324047801910506000093491 /* TVDDropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVDDropView.h; sourceTree = "<group>"; };
 		324047811910506000093491 /* TVDDropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVDDropView.m; sourceTree = "<group>"; };
 		32404783191051C300093491 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3256184F191B48750027D4D8 /* TVDWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVDWindow.h; sourceTree = "<group>"; };
+		32561850191B48750027D4D8 /* TVDWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVDWindow.m; sourceTree = "<group>"; };
 		32B80AD11910015C008C6AEF /* TVDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32B80AD41910015C008C6AEF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		32B80AD71910015C008C6AEF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -158,6 +161,8 @@
 				324047811910506000093491 /* TVDDropView.m */,
 				32EB318C19107AA000CF8E1D /* TVDModel.h */,
 				32EB318D19107AA000CF8E1D /* TVDModel.m */,
+				3256184F191B48750027D4D8 /* TVDWindow.h */,
+				32561850191B48750027D4D8 /* TVDWindow.m */,
 				32B80AE91910015C008C6AEF /* MainMenu.xib */,
 				3240476E19101CE000093491 /* AirplayKit */,
 				32B80AEC1910015C008C6AEF /* Images.xcassets */,
@@ -333,6 +338,7 @@
 				3240477619101CE000093491 /* AKAirplayManager.m in Sources */,
 				3240477719101CE000093491 /* AKDevice.m in Sources */,
 				32EB318E19107AA000CF8E1D /* TVDModel.m in Sources */,
+				32561851191B48750027D4D8 /* TVDWindow.m in Sources */,
 				32B80AE11910015C008C6AEF /* main.m in Sources */,
 				32B80AE81910015C008C6AEF /* TVDAppDelegate.m in Sources */,
 				324047821910506000093491 /* TVDDropView.m in Sources */,
@@ -425,9 +431,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.8;
 			};
 			name = Debug;
 		};
@@ -458,8 +464,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				SDKROOT = macosx;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx10.8;
 			};
 			name = Release;
 		};
@@ -472,6 +478,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TVDrop/TVDrop-Prefix.pch";
 				INFOPLIST_FILE = "TVDrop/TVDrop-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -486,6 +493,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TVDrop/TVDrop-Prefix.pch";
 				INFOPLIST_FILE = "TVDrop/TVDrop-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

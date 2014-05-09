@@ -8,6 +8,7 @@
 
 #import "AKDevice.h"
 #import <CocoaAsyncSocket/AsyncSocket.h>
+#import <ReactiveCocoa.h>
 
 @class AKAirplayManager;
 
@@ -21,10 +22,10 @@
 @interface AKAirplayManager : NSObject <NSNetServiceBrowserDelegate, NSNetServiceDelegate, AsyncSocketDelegate>
 
 @property (nonatomic, assign) id <AKAirplayManagerDelegate> delegate;
-@property (nonatomic, strong) AKDevice *connectedDevice;
-@property (nonatomic, strong) AsyncSocket *socket;
-@property (nonatomic, strong) NSNetServiceBrowser *serviceBrowser;
-@property (nonatomic, strong) NSMutableSet *foundServices;
+@property (nonatomic, strong) AKDevice                 *connectedDevice;
+@property (nonatomic, strong) AsyncSocket              *socket;
+@property (nonatomic, strong) NSNetServiceBrowser      *serviceBrowser;
+@property (nonatomic, strong) NSMutableSet             *foundServices;
 
 - (void)findDevices;
 - (void)connectToDevice:(AKDevice *)device;

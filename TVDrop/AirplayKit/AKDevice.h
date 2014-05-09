@@ -18,14 +18,16 @@
 
 @interface AKDevice : NSObject <AsyncSocketDelegate>
 
-@property (nonatomic, assign) id <AKDeviceDelegate> delegate;
-@property (nonatomic, readonly) NSString *displayName;
-@property (nonatomic, strong) NSString *hostname;
-@property (nonatomic, assign) UInt16 port;
-@property (nonatomic, assign) BOOL connected;
-@property (nonatomic, assign) BOOL playing;
-@property (nonatomic, strong) AsyncSocket *socket;
-@property (nonatomic, strong) NSNetService *netService;
+@property (nonatomic, assign  ) id <AKDeviceDelegate> delegate;
+@property (nonatomic, readonly) NSString         *displayName;
+@property (nonatomic, strong  ) NSString         *hostname;
+@property (nonatomic, assign  ) UInt16           port;
+@property (nonatomic, assign  ) BOOL             connected;
+@property (nonatomic, assign  ) BOOL             playing;
+@property (nonatomic, strong  ) AsyncSocket      *socket;
+@property (nonatomic, strong  ) NSNetService     *netService;
+@property (nonatomic, strong  ) NSTimer          *keepAliveTimer;
+
 
 - (void)sendRawData:(NSData *)data;
 - (void)sendRawMessage:(NSString *)message;

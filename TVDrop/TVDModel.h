@@ -11,24 +11,23 @@
 #import <GCDWebServer.h>
 #import <GCDWebServer/GCDWebServerFileResponse.h>
 #import <GCDWebServer/GCDWebServerDataResponse.h>
+#import <GCDWebServer/GCDWebServerStreamedResponse.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "AirplayKit/AKAirplayManager.h"
 #import "AirplayKit/AKDevice.h"
 
-
-@interface TVDModel : NSView <AKAirplayManagerDelegate, AKDeviceDelegate>
+@interface TVDModel : NSView <AKAirplayManagerDelegate, AKDeviceDelegate, GCDWebServerDelegate>
 
 @property (nonatomic, strong) AKAirplayManager *airplayManager;
-@property (nonatomic, strong) AKDevice *connectedDevice;
-@property (nonatomic, strong) GCDWebServer *webServer;
-@property (nonatomic, strong) NSMutableSet *foundDevices;
-@property (nonatomic, strong) NSURL *fileToPlayURL;
+@property (nonatomic, strong) GCDWebServer     *webServer;
+@property (nonatomic, strong) NSSet            *foundDevices;
+@property (nonatomic, strong) NSURL            *fileURL;
 
 + (instancetype)sharedInstance;
 
+- (void)startFindingDevices;
 - (void)playFileAtURL:(NSURL *)fileURL;
-- (void)connectAndPlay:(NSString *)selectedItemTitle;
 
 - (NSArray *)allTypes;
 - (NSArray *)imageTypes;

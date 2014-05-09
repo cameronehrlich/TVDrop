@@ -34,8 +34,10 @@
 {
     NSPasteboard *pboard = [sender draggingPasteboard];
     
-    [[TVDModel sharedInstance] setFileToPlayURL:[NSURL URLFromPasteboard:pboard]];
-    [[TVDModel sharedInstance] connectAndPlay:[[[TVDModel sharedInstance] connectedDevice] displayName]];
+    if ([[[[TVDModel sharedInstance] airplayManager] connectedDevice] connected]) {
+        NSURL *fileURL = [NSURL URLFromPasteboard:pboard];
+        [[TVDModel sharedInstance] playFileAtURL:fileURL];
+    }
     
     return YES;
 }
@@ -43,8 +45,18 @@
 -(void)keyUp:(NSEvent *)theEvent
 {
     if (theEvent.keyCode == 49) {
-        [[[TVDModel sharedInstance] connectedDevice] sendPlayPause];
+        [[[[TVDModel sharedInstance] airplayManager] connectedDevice] sendPlayPause];
     }
+}
+
+-(void)keyDown:(NSEvent *)theEvent
+{
+    //override to stop the beeping
+}
+
+-(BOOL)acceptsFirstResponder
+{
+    return YES;
 }
 
 @end
