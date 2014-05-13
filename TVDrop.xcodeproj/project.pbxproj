@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		322848061921C69700F18EDD /* AKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 322848051921C69700F18EDD /* AKRequest.m */; };
 		3240477619101CE000093491 /* AKAirplayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3240477019101CE000093491 /* AKAirplayManager.m */; };
 		3240477719101CE000093491 /* AKDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 3240477219101CE000093491 /* AKDevice.m */; };
 		3240477C191036D500093491 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3240477B191036D500093491 /* SystemConfiguration.framework */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		322848041921C69700F18EDD /* AKRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKRequest.h; sourceTree = "<group>"; };
+		322848051921C69700F18EDD /* AKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKRequest.m; sourceTree = "<group>"; };
 		3240476F19101CE000093491 /* AKAirplayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAirplayManager.h; sourceTree = "<group>"; };
 		3240477019101CE000093491 /* AKAirplayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAirplayManager.m; sourceTree = "<group>"; };
 		3240477119101CE000093491 /* AKDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKDevice.h; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 				3240477019101CE000093491 /* AKAirplayManager.m */,
 				3240477119101CE000093491 /* AKDevice.h */,
 				3240477219101CE000093491 /* AKDevice.m */,
+				322848041921C69700F18EDD /* AKRequest.h */,
+				322848051921C69700F18EDD /* AKRequest.m */,
 			);
 			path = AirplayKit;
 			sourceTree = "<group>";
@@ -338,6 +343,7 @@
 				3240477619101CE000093491 /* AKAirplayManager.m in Sources */,
 				3240477719101CE000093491 /* AKDevice.m in Sources */,
 				32EB318E19107AA000CF8E1D /* TVDModel.m in Sources */,
+				322848061921C69700F18EDD /* AKRequest.m in Sources */,
 				32561851191B48750027D4D8 /* TVDWindow.m in Sources */,
 				32B80AE11910015C008C6AEF /* main.m in Sources */,
 				32B80AE81910015C008C6AEF /* TVDAppDelegate.m in Sources */,

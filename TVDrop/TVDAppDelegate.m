@@ -10,33 +10,11 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <POP/POP.h>
 
-#define kMinWindowSize CGSizeMake(75, 75)
-
 @implementation TVDAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    [self.window setAlphaValue:0];
-    [self.window setInitialFirstResponder:self.dropView];
-    [self.window makeFirstResponder:self.dropView];
-//    [self.window setLevel:NSMainMenuWindowLevel + 2];
-    [self.window setMinSize:CGSizeMake(kMinWindowSize.width, kMinWindowSize.height)];
-    [self.window setStyleMask: (NSBorderlessWindowMask) ];
-    NSRect windowRect = NSRectFromCGRect(CGRectMake(
-                                                    10,
-                                                    10,
-                                                    kMinWindowSize.width,
-                                                    kMinWindowSize.height));
-    
-    [self.window setFrame:windowRect display:YES animate:NO];
-
-    [self.window setBackgroundColor:[NSColor clearColor]];
-    [self.window setOpaque:NO];
-    [self.window setHasShadow:NO];
-    
-    [self.dropView.layer setOpacity:1];
-    [self.dropView.layer setCornerRadius:kMinWindowSize.height/2];
-
+    [self.window center];
     
     [RACObserve([TVDModel sharedInstance], fileURL) subscribeNext:^(id x) {
 
@@ -67,11 +45,6 @@
     }];
 
     [[TVDModel sharedInstance] startFindingDevices];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.window setAlphaValue:0.9];
-    });
-
 
 }
 

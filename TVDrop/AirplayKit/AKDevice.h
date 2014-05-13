@@ -28,9 +28,7 @@
 @property (nonatomic, strong  ) NSNetService     *netService;
 @property (nonatomic, strong  ) NSTimer          *keepAliveTimer;
 
-
 - (void)sendRawData:(NSData *)data;
-- (void)sendRawMessage:(NSString *)message;
 - (void)sendContentURL:(NSString *)url;
 - (void)sendImage:(NSImage *)image;
 - (void)sendStop;
