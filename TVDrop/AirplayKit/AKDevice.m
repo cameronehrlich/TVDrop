@@ -6,11 +6,15 @@
 //  Copyright 2011 Roozy. All rights reserved.
 //
 
+#import <RXMLElement.h>
+
 #import "AKDevice.h"
 #import "AKRequest.h"
+#import "AKResponse.h"
 
 #define kSocketTimeout 30
-#define kKeepAliveInterval 5.0
+#define kKeepAliveInterval 2.0
+#define kScrubSpeed 30.0
 
 @implementation AKDevice
 
@@ -48,6 +52,11 @@
 #pragma mark -
 #pragma mark Public Methods
 
+- (void)sendRequest:(AKRequest *)request
+{
+    [self sendRawData:[request requestData]];
+}
+
 - (void)sendRawData:(NSData *)data
 {
 	self.socket.delegate = self;
@@ -59,35 +68,19 @@
 {
     self.playing = YES;
 
-    NSString *body = [[NSString alloc] initWithFormat:
-                      @"Content-Location: %@\r\n"
-                      "Start-Position: 0\r\n\r\n", url];
-    
+    NSString *body = [[NSString alloc] initWithFormat: @"Content-Location: %@\r\n""Start-Position: 0\r\n\r\n", url];
     
     AKRequest *request = [[AKRequest alloc] init];
     [request setRequestType:AKRequestTypePOST];
     [request setPath:@"play"];
-    [request addParameterKey:@"Content-Length" withValue:[NSString stringWithFormat:@"%lu", (unsigned long)[body length]]];
     [request setBody:body];
     
     [self sendRawData:[request requestData]];
     
-//	NSUInteger length = [body length];
-//	
-//	NSString *message = [[NSString alloc] initWithFormat:
-//                         @"POST /play HTTP/1.1\r\n"
-//                         "Content-Length: %lu\r\n"
-//                         "User-Agent: MediaControl/1.0\r\n\r\n%@", (unsigned long)length, body];
-//    
-//    NSLog(@"Number #2: %@", message);
-//    
-//    [self sendRawData:[message dataUsingEncoding:NSUTF8StringEncoding];
-    
-    
     // Start Timer
 	self.keepAliveTimer = [NSTimer scheduledTimerWithTimeInterval:kKeepAliveInterval
                                                            target:self
-                                                         selector:@selector(sendReverse)
+                                                         selector:@selector(sendPlaybackInfo)
                                                          userInfo:nil
                                                           repeats:YES];
 
@@ -117,15 +110,21 @@
     [messageData appendData:imageData];
     
     [self sendRawData:messageData];
+    
+    
+    AKRequest *request = [AKRequest requestPath:@"photo" withType:AKRequestTypePUT];
+    [request setBody:[[NSString alloc] initWithData:imageData encoding:NSUTF8StringEncoding]];
+    
+    [self sendRawData:[request requestData]];
 }
 
 - (void)sendStop
 {
     self.playing = NO;
-	NSString *message =
-    @"POST /stop HTTP/1.1\r\n"
-    "User-Agent: MediaControl/1.0\r\n\r\n";
-    [self sendRawData:[message dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    AKRequest *request =[AKRequest requestPath:@"stop" withType:AKRequestTypePOST];
+    [self sendRequest:request];
+    
     [self.keepAliveTimer invalidate];
 }
 
@@ -133,39 +132,62 @@
 {
     self.playing = !self.playing;
     
-    NSString *postRequest = [NSString stringWithFormat:@"POST /rate?value=%d HTTP/1.1\r\n", self.playing];
-	NSString *message = [postRequest stringByAppendingString:
-    @"Upgrade: PTTH/1.0\r\n"
-    "Connection: Upgrade\r\n"
-    "Content-Length: 0\r\n"
-    "X-Apple-Purpose: event\r\n"
-    "User-Agent: MediaControl/1.0\r\n\r\n"];
-    
-    [self sendRawData:[message dataUsingEncoding:NSUTF8StringEncoding]];
+    AKRequest *request = [AKRequest requestPath:[NSString stringWithFormat:@"rate?value=%d", self.playing] withType:AKRequestTypePOST];
+    [request addParameterKey:@"Upgrade" withValue:@"PTTH/1.0"];
+    [request addParameterKey:@"Connection" withValue:@"Upgrade"];
+    [request addParameterKey:@"Content-Length" withValue:@"0"];
+    [request addParameterKey:@"X-Apple-Purpose" withValue:@"event"];
+
+    [self sendRequest:request];
 }
 
 - (void)sendReverse
 {
-    AKRequest *request = [[AKRequest alloc] init];
-    [request setRequestType:AKRequestTypePOST];
-    [request setPath:@"reverse"];
+    AKRequest *request = [AKRequest requestPath:@"reverse" withType:AKRequestTypePOST];
     [request addParameterKey:@"Upgrade" withValue:@"PTTH/1.0"];
     [request addParameterKey:@"Connection" withValue:@"Upgrade"];
     [request addParameterKey:@"X-Apple-Purpose" withValue:@"event"];
     [request addParameterKey:@"Content-Length" withValue:@"0"];
     
-	[self sendRawData:[request requestData]];
+	[self sendRequest:request];
+}
+
+- (void)sendServerInfo
+{
+    AKRequest *request = [AKRequest requestPath:@"server-info" withType:AKRequestTypeGET];
+    [self sendRequest:request];
+}
+
+- (void)sendSeekForward
+{
+    float newPosition = MIN(self.duration.floatValue, self.position.floatValue + kScrubSpeed);
+    self.position = @(newPosition);
     
+    NSString *path = [NSString stringWithFormat:
+                      @"scrub?position=%f",
+                      newPosition];
     
-    NSString *message =
-    @"POST /reverse HTTP/1.1\r\n"
-    "Upgrade: PTTH/1.0\r\n"
-    "Connection: Upgrade\r\n"
-    "X-Apple-Purpose: event\r\n"
-    "Content-Length: 0\r\n"
-    "User-Agent: MediaControl/1.0\r\n\r\n";
-	
-	[self sendRawData:[message dataUsingEncoding:NSUTF8StringEncoding]];
+    AKRequest *request = [AKRequest requestPath:path withType:AKRequestTypePOST];
+    [self sendRequest:request];
+}
+
+- (void)sendSeekBackward
+{
+    float newPosition = MAX(0.0, self.position.floatValue - kScrubSpeed);
+    self.position = @(newPosition);
+
+    NSString *path = [NSString stringWithFormat:
+                      @"scrub?position=%f",
+                      newPosition];
+    
+    AKRequest *request = [AKRequest requestPath:path withType:AKRequestTypePOST];
+    [self sendRequest:request];
+}
+
+- (void)sendPlaybackInfo
+{
+    AKRequest *request = [AKRequest requestPath:@"playback-info" withType:AKRequestTypeGET];
+    [self sendRequest:request];
 }
 
 #pragma mark -
@@ -173,8 +195,18 @@
 
 - (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
-    NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"\r\nReading: %@", message);
+    AKResponse *response = [AKResponse responseWithData:data];
+    if ([response body]) {
+        RXMLElement *xml = [RXMLElement elementFromXMLString:[response body] encoding:NSUTF8StringEncoding];
+        // FIXME : MASSIVE HACK, FUCK PLISTS
+        NSArray *values = [[xml child:@"dict"] children:@"real"];
+
+        if(values.count > 0){
+            self.duration = @([[[values objectAtIndex:0] text] floatValue]);
+            self.position = @([[[values objectAtIndex:1] text] floatValue]);
+            self.playing  = [[[values objectAtIndex:2] text] boolValue];
+        }
+    }
 }
 
 @end

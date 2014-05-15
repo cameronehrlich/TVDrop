@@ -59,7 +59,7 @@
 
 -(void)airplayManager:(AKAirplayManager *)manager didConnectToDevice:(AKDevice *)device
 {
-    NSLog(@"%s", __FUNCTION__);
+    //
 }
 
 - (void)connectAndPlay:(NSString *)selectedItemTitle

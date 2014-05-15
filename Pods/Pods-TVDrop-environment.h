@@ -36,6 +36,12 @@
 #define COCOAPODS_VERSION_MINOR_NSString_RMURLEncoding 1
 #define COCOAPODS_VERSION_PATCH_NSString_RMURLEncoding 0
 
+// RaptureXML
+#define COCOAPODS_POD_AVAILABLE_RaptureXML
+#define COCOAPODS_VERSION_MAJOR_RaptureXML 1
+#define COCOAPODS_VERSION_MINOR_RaptureXML 0
+#define COCOAPODS_VERSION_PATCH_RaptureXML 1
+
 // ReactiveCocoa
 #define COCOAPODS_POD_AVAILABLE_ReactiveCocoa
 #define COCOAPODS_VERSION_MAJOR_ReactiveCocoa 2
@@ -59,10 +65,4 @@
 #define COCOAPODS_VERSION_MAJOR_ReactiveCocoa_no_arc 2
 #define COCOAPODS_VERSION_MINOR_ReactiveCocoa_no_arc 3
 #define COCOAPODS_VERSION_PATCH_ReactiveCocoa_no_arc 0
-
-// pop
-#define COCOAPODS_POD_AVAILABLE_pop
-#define COCOAPODS_VERSION_MAJOR_pop 1
-#define COCOAPODS_VERSION_MINOR_pop 0
-#define COCOAPODS_VERSION_PATCH_pop 4
 

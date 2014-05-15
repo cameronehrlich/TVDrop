@@ -9,7 +9,7 @@ target "TVDrop" do
     pod 'GCDWebServer'
     pod 'NSString+RMURLEncoding'
     pod 'HexColors'
-    pod 'pop'
+    pod 'RaptureXML'
 end
 
 target "TVDropTests" do

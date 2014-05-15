@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3222985119245567000023DD /* AKResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3222985019245567000023DD /* AKResponse.m */; };
 		322848061921C69700F18EDD /* AKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 322848051921C69700F18EDD /* AKRequest.m */; };
 		3240477619101CE000093491 /* AKAirplayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3240477019101CE000093491 /* AKAirplayManager.m */; };
 		3240477719101CE000093491 /* AKDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 3240477219101CE000093491 /* AKDevice.m */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3222984F19245567000023DD /* AKResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKResponse.h; sourceTree = "<group>"; };
+		3222985019245567000023DD /* AKResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKResponse.m; sourceTree = "<group>"; };
 		322848041921C69700F18EDD /* AKRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKRequest.h; sourceTree = "<group>"; };
 		322848051921C69700F18EDD /* AKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKRequest.m; sourceTree = "<group>"; };
 		3240476F19101CE000093491 /* AKAirplayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAirplayManager.h; sourceTree = "<group>"; };
@@ -110,6 +113,8 @@
 				3240477219101CE000093491 /* AKDevice.m */,
 				322848041921C69700F18EDD /* AKRequest.h */,
 				322848051921C69700F18EDD /* AKRequest.m */,
+				3222984F19245567000023DD /* AKResponse.h */,
+				3222985019245567000023DD /* AKResponse.m */,
 			);
 			path = AirplayKit;
 			sourceTree = "<group>";
@@ -348,6 +353,7 @@
 				32B80AE11910015C008C6AEF /* main.m in Sources */,
 				32B80AE81910015C008C6AEF /* TVDAppDelegate.m in Sources */,
 				324047821910506000093491 /* TVDDropView.m in Sources */,
+				3222985119245567000023DD /* AKResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

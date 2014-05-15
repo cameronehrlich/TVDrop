@@ -23,6 +23,8 @@ typedef NS_ENUM(NSUInteger, AKRequestType) {
 @property (nonatomic, strong) NSString              *body;
 @property (nonatomic, assign) AKRequestType         requestType;
 
++ (instancetype)requestPath:(NSString *)path withType:(AKRequestType)type;
+
 - (void)addParameterKey:(NSString *)key withValue:(NSString *)value;
 
 - (NSString *)requestString;

@@ -44,8 +44,27 @@
 
 -(void)keyUp:(NSEvent *)theEvent
 {
-    if (theEvent.keyCode == 49) {
-        [[[[TVDModel sharedInstance] airplayManager] connectedDevice] sendPlayPause];
+    switch (theEvent.keyCode) {
+        case 49: // space
+            [[[[TVDModel sharedInstance] airplayManager] connectedDevice] sendPlayPause];
+            break;
+        case 47: // Period
+            [[[[TVDModel sharedInstance] airplayManager] connectedDevice] sendStop];
+            break;
+        case 123: // Left Arrow
+            [[[[TVDModel sharedInstance] airplayManager] connectedDevice] sendSeekBackward];
+            break;
+        case 124: // Right Arrow
+            [[[[TVDModel sharedInstance] airplayManager] connectedDevice] sendSeekForward];
+            break;
+        case 34: // "i" key
+            [[[[TVDModel sharedInstance] airplayManager] connectedDevice] sendServerInfo];
+            break;
+        case 32: // "u" key
+            [[[[TVDModel sharedInstance] airplayManager] connectedDevice] sendPlaybackInfo];
+            break;
+        default:
+            break;
     }
 }
 

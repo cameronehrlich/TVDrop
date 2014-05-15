@@ -8,24 +8,19 @@
 
 #import "TVDAppDelegate.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
-#import <POP/POP.h>
 
 @implementation TVDAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    [self.window center];
+//    [self.window center];
     
     [RACObserve([TVDModel sharedInstance], fileURL) subscribeNext:^(id x) {
-
-        NSLog(@"File name: %@", x);
-
         if(x){
             [self.statusLabel setStringValue:[(NSURL *)x lastPathComponent]];
         }else{
             [self.statusLabel setStringValue:@""];
         }
-        
     }];
     
     [RACObserve([TVDModel sharedInstance], foundDevices) subscribeNext:^(id x) {
@@ -42,6 +37,26 @@
                 [[[TVDModel sharedInstance] airplayManager] connectToDevice:newDevice];
             }
         }
+    }];
+    
+    [RACObserve([[TVDModel sharedInstance] airplayManager], connectedDevice) subscribeNext:^(id x) {
+        [RACObserve([[[TVDModel sharedInstance] airplayManager] connectedDevice], playing) subscribeNext:^(id x) {
+            if ([[[[TVDModel sharedInstance] airplayManager] connectedDevice] playing]) {
+                self.playingLabel.stringValue = @"Playing";
+            }else{
+                self.playingLabel.stringValue = @"";
+            }
+        }];
+        [RACObserve([[[TVDModel sharedInstance] airplayManager] connectedDevice], duration) subscribeNext:^(id x) {
+            if ([[[[TVDModel sharedInstance] airplayManager] connectedDevice] playing]) {
+                [self.playheadSlider setMaxValue:[[[[[TVDModel sharedInstance] airplayManager] connectedDevice] duration] floatValue]];
+            }
+        }];
+        [RACObserve([[[TVDModel sharedInstance] airplayManager] connectedDevice], position) subscribeNext:^(id x) {
+            if ([[[[TVDModel sharedInstance] airplayManager] connectedDevice] playing]) {
+                [self.playheadSlider setDoubleValue:[[[[[TVDModel sharedInstance] airplayManager] connectedDevice] position] floatValue]];
+            }
+        }];
     }];
 
     [[TVDModel sharedInstance] startFindingDevices];

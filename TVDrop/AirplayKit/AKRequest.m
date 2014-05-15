@@ -19,6 +19,14 @@
     return self;
 }
 
++ (instancetype)requestPath:(NSString *)path withType:(AKRequestType)type
+{
+    AKRequest *request = [[AKRequest alloc] init];
+    [request setPath:path];
+    [request setRequestType:type];
+    return request;
+}
+
 - (NSString *)stringForType:(AKRequestType)type
 {
     NSDictionary *typeTable =
@@ -29,6 +37,23 @@
     };
     
     return [typeTable objectForKey:@(type)];
+}
+
+- (void)setBody:(NSString *)body
+{
+    if (!body) {
+        [self.parameters removeObjectForKey:@"Content-Length"];
+        _body = body;
+        return;
+    }
+    
+    [self addParameterKey:@"Content-Length" withValue:[NSString stringWithFormat:@"%lu", (unsigned long)[body length]]];
+    _body = body;
+}
+
+-(void)setPath:(NSString *)path
+{
+    _path = [path stringByReplacingOccurrencesOfString:@"/" withString:@""];
 }
 
 - (void)addParameterKey:(NSString *)key withValue:(NSString *)value;
@@ -47,9 +72,7 @@
 
 - (NSString *)requestString
 {
-    if (![self.parameters objectForKey:@"User-Agent"]) {
-        [self addParameterKey:@"User-Agent" withValue:@"MediaControl/1.0"];
-    }
+    [self addParameterKey:@"User-Agent" withValue:@"MediaControl/1.0"];
 
     NSMutableString *contructionString = [[NSMutableString alloc] init];
     

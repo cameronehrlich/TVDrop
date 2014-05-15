@@ -1,0 +1,5 @@
+#include "Pods-TVDrop-RaptureXML.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/RaptureXML" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/CocoaAsyncSocket" "${PODS_ROOT}/Headers/GCDWebServer" "${PODS_ROOT}/Headers/HexColors" "${PODS_ROOT}/Headers/NSString+RMURLEncoding" "${PODS_ROOT}/Headers/RaptureXML" "${PODS_ROOT}/Headers/ReactiveCocoa" "${PODS_ROOT}/Headers/ReactiveCocoa/ReactiveCocoa" ${PODS_TVDROP_RAPTUREXML_HEADER_SEARCH_PATHS}
+OTHER_LDFLAGS = -ObjC ${PODS_TVDROP_RAPTUREXML_OTHER_LDFLAGS}
+PODS_ROOT = ${SRCROOT}
