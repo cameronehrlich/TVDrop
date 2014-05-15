@@ -13,7 +13,7 @@
 #import "AKResponse.h"
 
 #define kSocketTimeout 30
-#define kKeepAliveInterval 2.0
+#define kKeepAliveInterval 1.0
 #define kScrubSpeed 30.0
 
 @implementation AKDevice
@@ -66,8 +66,6 @@
 
 - (void)sendContentURL:(NSString *)url
 {
-    self.playing = YES;
-
     NSString *body = [[NSString alloc] initWithFormat: @"Content-Location: %@\r\n""Start-Position: 0\r\n\r\n", url];
     
     AKRequest *request = [[AKRequest alloc] init];
@@ -88,8 +86,6 @@
 
 - (void)sendImage:(NSImage *)image
 {
-    self.playing = NO;
-    
     [image lockFocus];
     
     NSBitmapImageRep *bitmapRep = [[NSBitmapImageRep alloc] initWithFocusedViewRect:NSMakeRect(0, 0, [image size].width, [image size].height)];
@@ -120,8 +116,6 @@
 
 - (void)sendStop
 {
-    self.playing = NO;
-    
     AKRequest *request =[AKRequest requestPath:@"stop" withType:AKRequestTypePOST];
     [self sendRequest:request];
     
@@ -130,9 +124,7 @@
 
 - (void)sendPlayPause
 {
-    self.playing = !self.playing;
-    
-    AKRequest *request = [AKRequest requestPath:[NSString stringWithFormat:@"rate?value=%d", self.playing] withType:AKRequestTypePOST];
+    AKRequest *request = [AKRequest requestPath:[NSString stringWithFormat:@"rate?value=%d", !self.playing] withType:AKRequestTypePOST];
     [request addParameterKey:@"Upgrade" withValue:@"PTTH/1.0"];
     [request addParameterKey:@"Connection" withValue:@"Upgrade"];
     [request addParameterKey:@"Content-Length" withValue:@"0"];

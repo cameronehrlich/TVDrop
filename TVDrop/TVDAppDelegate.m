@@ -60,9 +60,7 @@
     }];
 
     [[TVDModel sharedInstance] startFindingDevices];
-
 }
-
 
 - (void)dropdownDidChange:(id)sender
 {
