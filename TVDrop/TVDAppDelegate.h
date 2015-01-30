@@ -12,11 +12,11 @@
 
 @interface TVDAppDelegate : NSObject <NSApplicationDelegate>
 
-@property (nonatomic, assign) IBOutlet NSWindow *window;
+@property (nonatomic, assign) IBOutlet NSWindow    *window;
 @property (nonatomic, strong) IBOutlet TVDDropView *dropView;
 @property (nonatomic, strong) IBOutlet NSTextField *statusLabel;
-@property (nonatomic, strong) IBOutlet NSMenuItem *airplayDevicesMenuItem;
-@property (nonatomic, strong) IBOutlet NSSlider *playheadSlider;
+@property (nonatomic, strong) IBOutlet NSMenuItem  *airplayDevicesMenuItem;
+@property (nonatomic, strong) IBOutlet NSSlider    *playheadSlider;
 @property (nonatomic, strong) IBOutlet NSTextField *playingLabel;
 
 - (IBAction)stopButtonAction:(id)sender;

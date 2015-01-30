@@ -13,13 +13,11 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-//    [self.window center];
-    
     [RACObserve([TVDModel sharedInstance], fileURL) subscribeNext:^(id x) {
         if(x){
             [self.statusLabel setStringValue:[(NSURL *)x lastPathComponent]];
         }else{
-            [self.statusLabel setStringValue:@""];
+            [self.statusLabel setStringValue:@"Drag and Drop a file here."];
         }
     }];
     
@@ -47,11 +45,13 @@
                 self.playingLabel.stringValue = @"";
             }
         }];
+        
         [RACObserve([[[TVDModel sharedInstance] airplayManager] connectedDevice], duration) subscribeNext:^(id x) {
             if ([[[[TVDModel sharedInstance] airplayManager] connectedDevice] playing]) {
                 [self.playheadSlider setMaxValue:[[[[[TVDModel sharedInstance] airplayManager] connectedDevice] duration] floatValue]];
             }
         }];
+        
         [RACObserve([[[TVDModel sharedInstance] airplayManager] connectedDevice], position) subscribeNext:^(id x) {
             if ([[[[TVDModel sharedInstance] airplayManager] connectedDevice] playing]) {
                 [self.playheadSlider setDoubleValue:[[[[[TVDModel sharedInstance] airplayManager] connectedDevice] position] floatValue]];

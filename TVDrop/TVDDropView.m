@@ -25,7 +25,7 @@
     return NSDragOperationCopy;
 }
 
--(void)draggingExited:(id<NSDraggingInfo>)sender
+- (void)draggingExited:(id<NSDraggingInfo>)sender
 {
     [self.layer setBackgroundColor:[[NSColor colorWithHexString:@"#BEE5E9" alpha:1] CGColor]];
 }
@@ -42,7 +42,7 @@
     return YES;
 }
 
--(void)keyUp:(NSEvent *)theEvent
+- (void)keyUp:(NSEvent *)theEvent
 {
     switch (theEvent.keyCode) {
         case 49: // space
@@ -68,12 +68,12 @@
     }
 }
 
--(void)keyDown:(NSEvent *)theEvent
+- (void)keyDown:(NSEvent *)theEvent
 {
     //override to stop the beeping
 }
 
--(BOOL)acceptsFirstResponder
+- (BOOL)acceptsFirstResponder
 {
     return YES;
 }

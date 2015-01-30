@@ -41,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3208B1AE1A7B3B6400CC3736 /* TVDrop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TVDrop.entitlements; sourceTree = "<group>"; };
 		3222984F19245567000023DD /* AKResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKResponse.h; sourceTree = "<group>"; };
 		3222985019245567000023DD /* AKResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKResponse.m; sourceTree = "<group>"; };
 		322848041921C69700F18EDD /* AKRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKRequest.h; sourceTree = "<group>"; };
@@ -165,6 +166,7 @@
 		32B80ADA1910015C008C6AEF /* TVDrop */ = {
 			isa = PBXGroup;
 			children = (
+				3208B1AE1A7B3B6400CC3736 /* TVDrop.entitlements */,
 				32B80AE61910015C008C6AEF /* TVDAppDelegate.h */,
 				32B80AE71910015C008C6AEF /* TVDAppDelegate.m */,
 				324047801910506000093491 /* TVDDropView.h */,
@@ -261,6 +263,14 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Cameron Ehrlich";
 				TargetAttributes = {
+					32B80AD01910015C008C6AEF = {
+						DevelopmentTeam = 842K77RHSG;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
 					32B80AF11910015C008C6AEF = {
 						TestTargetID = 32B80AD01910015C008C6AEF;
 					};
@@ -428,6 +438,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -443,9 +454,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx10.8;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -466,7 +476,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -476,8 +485,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				SDKROOT = macosx10.8;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -486,6 +494,8 @@
 			baseConfigurationReference = D4A239E355D54BF4A272228F /* Pods-TVDrop.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TVDrop/TVDrop.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TVDrop/TVDrop-Prefix.pch";
@@ -501,6 +511,8 @@
 			baseConfigurationReference = D4A239E355D54BF4A272228F /* Pods-TVDrop.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TVDrop/TVDrop.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TVDrop/TVDrop-Prefix.pch";

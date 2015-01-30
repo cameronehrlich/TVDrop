@@ -10,7 +10,14 @@
 
 @implementation TVDWindow
 
-- (BOOL)isMovableByWindowBackground {
+- (void)awakeFromNib
+{
+    [self setMinSize:NSSizeFromCGSize(CGSizeMake(200, 150))];
+    [self center];
+}
+
+- (BOOL)isMovableByWindowBackground
+{
     return YES;
 }
 
